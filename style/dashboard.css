@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,700&display=swap");
+/*
+classes:text {
+    midTxt,
+    contentTxt,
+    titleTxt
+    highlightTxt
+} 
+    
+*/
+
+/* ----------------- Varriables ------------------------------*/
+/* :root {
+  --primary-bgcolor: hsl(208, 95%, 8%);
+  --primary-color: #fff;
+  --highlight-color1: hsl(133, 91%, 53%);
+  --highlight-color2: hsl(0, 78%, 55%);
+  --cta-background: linear-gradient(
+    to right,
+    var(--highlight-color1),
+    hsl(133, 91%, 53%, 54%)
+  );
+  --box-radius: 14px;
+  --box-shadow: -15px 15px 37px rgba(0, 0, 0, 0.25);
+} */
+
+
+:root {
+  --primary-bgcolor: hsl(208, 95%, 8%);
+  --primary-color: #fff;
+  --highlight-color1: hsl(133, 91%, 53%);
+  --highlight-color2: hsl(0, 78%, 55%);
+  --cta-background: linear-gradient(
+    to right,
+    var(--highlight-color1),
+    hsl(133, 91%, 53%, 54%)
+  );
+  --box-radius: 14px;
+  --box-shadow: -15px 15px 37px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------------- Default Styles --------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--primary-bgcolor);
+  font-family: consolas, monospace;
+  width: 90vw;
+  margin: auto;
+  max-width: 1400px;
+  color: var(--primary-color);
+}
+
+/* ----------------------------- Common classes ---------------------------*/
+
+.highlightTxt {
+  color: var(--highlight-color2);
+  margin-top: 5px;
+}
+
+.codeTxt {
+  font-family: "Inconsolata", monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.2ch;
+  
+  color: var(--highlight-color1);
+}
+
+.name{
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.titleTxt {
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 0.1ch;
+}
+
+.midTxt {
+  font-size: 1.1rem;
+  letter-spacing: 0.3ch;
+}
+
+.contentTxt {
+  font-family: poppins, sans-serif;
+  font-size: 0.9rem;
+}
+
+/* --------------------- Header Styles ----------------------*/
+
+header {
+  color: var(--primary-color);
+  background-color: var(--primary-bgcolor);
+  padding: 2.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  
+  cursor: pointer;
+}
+
+/* -------------------------- Section Top -------------------------*/
+
+.topSection {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  height: 80vh;
+  position: relative;
+  max-height: 800px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.imageFrame {
+  /* width: 300px; */
+  border: 20px solid hsl(209, 100%, 6%);
+  border-radius: 50%;
+}
+
+.imageFrame img {
+  object-fit: cover;
+  width: 350px;
+  height: 350px;
+  /* width: 100%; */
+  border-radius: 50%;
+
+  border: 5px solid var(--highlight-color1);
+}
+
+.infoCard {
+  height: 80%;
+  max-height: 500px;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--box-radius);
+  padding: 20px 20px;
+}
+
+.topCard {
+  font-family: poppins, sans-serif;
+}
+
+.infoCard .bodyCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  height: 100%;
+  max-height: 300px;
+}
+
+.infoCard .bodyCard p {
+  width: 70%;
+}
+
+.ctaCard {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  padding: 12px 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  font-family: Inconsolata, monospace;
+  font-size: 1.1rem;
+  color: white;
+  background: none;
+  outline: none;
+  border: none;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.ctaBtn--primary {
+  background: var(--cta-background);
+  box-shadow: var(--box-shadow);
+}
+
+.ctaBtn--secondary {
+  color: rgb(233, 241, 231);
+}
+
+.btnIcon svg {
+  width: 20px;
+  height: 25px;
+}
+
+.mediaIcon i {
+  cursor: pointer;
+}
+
+/* -------------------------- animation  -------------------------*/
+
+.scrollIcon {
+  display: inline-block;
+  width: 30px;
+  height: 60px;
+  border: 2px solid white;
+  border-radius: 30px;
+  position: relative;
+  bottom: 0px;
+  cursor: pointer;
+}
+
+.scrollIcon::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  animation: scrollIn 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollIn {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    top: 90%;
+  }
+}
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: var(--primary-bgcolor);
+  box-shadow:var(--box-shadow);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  z-index: 2;
+
+}
+
+.modalHeading{
+  border-bottom: 2px solid white;
+  margin: 10px;
+  padding: 10px 0;
+}
+
+.modalContent{
+  padding: 20px;
+}
+
+.modalEnd{
+  padding: 20px;
+  display: flex;
+
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+}

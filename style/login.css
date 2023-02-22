@@ -1,0 +1,110 @@
+@import url('./base.css');
+
+:root{
+    --sec-color:rgb(51, 214, 51);
+}
+
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+.right{
+    background-image: linear-gradient(to right, var(--sec-color) , rgb(162, 211, 149));
+    /* background-color: var(--sec-color); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+}
+
+
+
+.login--form{
+    height: 100%;
+    width: 100%;
+    padding: 30px 60px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0  100px;
+}
+
+.login--form form {
+    width: 100%;
+}
+
+.form--group{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0;
+    width: 60%;
+}
+
+.form--group input{
+    padding: 10px 20px 10px 0;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--sec-color);
+}
+
+.btn{
+    width: 50%;
+    /* margin: auto; */
+    /* padding: 15px 45px; */
+    padding: 10px 35px;
+    background: none;
+    /* background-color: var(--sec-color); */
+    /* border: 5px solid var(--sec-color); */
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.btn:hover{
+    /* background-color: var(--sec-color);
+     */
+     background-image: linear-gradient(to right, var(--sec-color) , rgb(162, 211, 149)); 
+     border: none;
+    color: white;
+}
+
+.form--group a{
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.form--group a:link{
+    color: rgb(18, 61, 7);
+}
+
+.form--group a:visited{
+    color: rgb(13, 46, 5);
+}
+
+.form--group a:hover{
+    color: var(--sec-color)
+}
+
+.message{
+    padding: 20px 0;
+    font-weight: 600;
+}
+
+.success{
+    color: var(--sec-color);
+}
+
+.error{
+    color:rgb(221, 47, 47)
+}
+

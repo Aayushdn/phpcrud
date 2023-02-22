@@ -1,0 +1,108 @@
+@import url('./base.css');
+
+:root{
+    --sec-color:rgb(68, 143, 68);
+}
+
+.navigation{
+    height: 20vh;
+}
+.navBar{
+    display: flex;
+    width: 100%;
+    padding: 40px 100px;
+    justify-content: space-between;
+}
+
+.navBar .navList{
+    list-style: none;
+}
+
+.navList{
+    display: flex;
+    gap: 20px;
+}
+
+.auth{
+    display: flex;
+    gap: 25px;
+}
+
+.login a,.signup a{
+    text-decoration: none;
+    color: black;
+}
+
+.welcome{
+    font-size: 16rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+main{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta .btn--secondary{
+    width: 250px;
+    background: none;
+    border: 3px solid var(--sec-color);
+    padding: 15px 30px;
+    outline: none;
+    border-radius: 150px;
+    cursor: pointer;
+}
+
+.cta .btn--secondary:hover{
+    background-color: var(--sec-color);
+    color: white;
+}
+
+.section{
+    padding: 70px 100px;
+}
+
+.largeTxt{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.section--1{
+    text-align: center;
+}
+
+.section--1 .medTxt{
+    padding: 20px 0;
+    color: gray;
+}
+
+.card{
+    /* border: 7px solid var(--sec-color); */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.card--img{
+    width: 80px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.card--img svg{
+    width: 100%;
+    fill: var(--sec-color);
+}
+
+.cards{
+    margin: 20px 0;
+    padding: 40px 40px;
+    display: flex;
+    justify-content: space-around;
+}
