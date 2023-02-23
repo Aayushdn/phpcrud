@@ -51,7 +51,7 @@
                 </div>
                 <div class="form--group">
                     <button class="btn" name="send" onclick ="validateForm()" type="button">Sign In</button>
-                    <a href="./signup.php">Already have an acount. Sign in</a>
+                    <a href="./login.php">Already have an acount. Sign in</a>
                 </div>
                 <input type="submit" name="signup" style="visibility:hidden;">
                 

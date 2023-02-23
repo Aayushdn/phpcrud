@@ -7,5 +7,7 @@
 }
 
 body{
+    background-color: hsl(208, 95%, 8%);
+    color: white;
     font-family: 'Poppins', sans-serif;
 }

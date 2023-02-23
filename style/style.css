@@ -1,7 +1,7 @@
 @import url('./base.css');
 
 :root{
-    --sec-color:rgb(68, 143, 68);
+    --sec-color:hsl(133, 91%, 53%);
 }
 
 .navigation{
@@ -30,12 +30,13 @@
 
 .login a,.signup a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .welcome{
     font-size: 16rem;
     text-align: center;
+    color: var(--sec-color);
     text-transform: uppercase;
 }
 
@@ -47,6 +48,7 @@ main{
 }
 
 .cta .btn--secondary{
+    color: white;
     width: 250px;
     background: none;
     border: 3px solid var(--sec-color);
@@ -58,7 +60,7 @@ main{
 
 .cta .btn--secondary:hover{
     background-color: var(--sec-color);
-    color: white;
+    color: hsl(208, 95%, 8%);
 }
 
 .section{

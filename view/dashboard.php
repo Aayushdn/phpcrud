@@ -49,17 +49,20 @@
           <div class="topCard">
             <p class="highlightTxt">#Learning to code</p>
           </div>
+          <form method="POST" action="../model/edit.php">
           <div class="bodyCard">
             <h1 class="titleTxt">Hey I'm <?php echo $_SESSION['userRow']['fname'] ?></h1>
-            <p class="contentTxt">
-              <?php echo $_SESSION['userRow']['bio'] ?> <br />
+            <p class="contentTxt" id="bio" >
+              <?php echo $_SESSION['userRow']['bio']; ?> <br />
             </p>
+            <input type="hidden" name="editedBio" id="editedBio">
+
             <p class="contentTxt" style="visibility: hidden;">
               For further inquiry You can contact me
             </p>
           </div>
           <div class="ctaCard">
-            <button class="btn ctaBtn--primary">
+            <button class="btn ctaBtn--primary" id="changeBio" type="button">
               <span class="btnText">Change Bio</span>
               <span class="btnIcon">
                 <svg
@@ -103,24 +106,28 @@
                 </svg>
               </span>
             </button>
-            <button class="btn ctaBtn--secondary">
-              <span class="btnText highlightTxt">Delete Account</span>
+            <button class="btn ctaBtn--primary hidden" id="confirmChange">
+              <span class="btnText" >Confirm Change</span>
+            </button>
+            <button class="btn ctaBtn--secondary" type="button">
+              <span class="btnText highlightTxt" id="deleteAc">Delete Account</span>
             </button>
           </div>
+          </form>
         </div>
       </section>
 
-      <div class="overlay">
+      <div class="overlay hidden">
         
       </div>
 
-      <div class="modal">
+      <div class="modal hidden">
         <div class="box">
           <h1 class="modalHeading">Are your Sure</h1>
-          <div class="modalContent">Do you want to logout</div>
+          <div class="modalContent">Do you want to delete this Account</div>
           <div class="modalEnd">
-            <button class="btn ctaBtn--primary">Yes</button>
-            <button class="btn">NO</button>
+            <button class="btn ctaBtn--primary" id="confirmDelete">Yes</button>
+            <button class="btn" id="noDelete">NO</button>
           </div>
         </div>
       </div>
@@ -128,8 +135,56 @@
   </body>
   <script>
     const logout = document.querySelector("#logout");
-    logout.addEventListener("click" ,() =>{
-      <?php require './model/logout.php' ?>;
+    const logoutModal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+    const editBioBtn = document.querySelector("#changeBio");
+    const confirmChange = document.querySelector("#confirmChange")
+    const bioBox = document.querySelector("#bio");
+    const bioInput = document.querySelector("#editedBio")
+    const deleteAc = document.querySelector("#deleteAc");
+    const container = document.querySelector("main");
+
+    function showModal(){
+      logoutModal.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+    }
+
+    function hideModal(){
+      ogoutModal.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+    }
+
+    logout.addEventListener("click" ,function(){
+      location.href = "../model/logout.php";
     })
+
+    editBioBtn.addEventListener("click",()=>{
+      bioBox.setAttribute("contenteditable","true");
+      editBioBtn.classList.toggle("hidden");
+      confirmChange.classList.toggle("hidden");
+      bioBox.focus();
+      bioInput.value = bioBox.textContent;
+    });
+
+    bioBox.addEventListener("input",()=>{
+      bioInput.value = bioBox.textContent;
+    })
+
+    document.querySelector("#confirmDelete").addEventListener("click",function(){
+      <?php $_SESSION['confirmDelete'] = 1; ?>
+      location.href = "../model/delete.php"
+    })
+    document.querySelector("#noDelete").addEventListener("click",function(){
+      hideModal();
+    })
+
+
+    deleteAc.addEventListener("click",function(){
+      showModal();
+    })
+
+
+
+
   </script>
 </html>

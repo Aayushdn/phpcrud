@@ -52,7 +52,7 @@ if (isset($_POST['email'])) {
             if (in_array($fileType, $allowTypes)) {
 
                 $image = $_FILES['pp']['tmp_name'];
-                $imgContent = addslashes(file_get_contents($image));
+                $imgContent = file_get_contents($image);
 
                 // sql query
                 $sql = "INSERT INTO auth (id,email,uname,password,fname,lname,bio,image) values('',?,?,?,?,?,?,?)";
