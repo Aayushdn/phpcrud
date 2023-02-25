@@ -4,6 +4,10 @@
     --sec-color:rgb(51, 214, 51);
 }
 
+body{
+    color: black;
+}
+
 
 .container{
     width: 100vw;
@@ -115,3 +119,17 @@ input[type="file"]{
 .flex--column{
     flex-direction: column;
 }
+
+.message{
+    padding: 0px 0;
+    font-weight: 600;
+}
+
+.success{
+    color: var(--sec-color);
+}
+
+.error{
+    color:rgb(221, 47, 47)
+}
+

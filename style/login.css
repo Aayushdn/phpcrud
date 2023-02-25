@@ -3,6 +3,9 @@
 :root{
     --sec-color:rgb(51, 214, 51);
 }
+body{
+    color: black;
+}
 
 
 .container{

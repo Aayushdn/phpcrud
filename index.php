@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +24,15 @@
                     <li class="navLink">FAQ</li>
                 </ul>
                 <div class="auth">
-                    <div class="login"><a href="./view/login.php">Login </a></div>
-                    <div class="signup"> <a href="./view/signup.php"> Signup </a></div>
+                    <?php
+                        if (isset($_SESSION['userId'])) echo '<div class="login"><a href="./view/login.php">My Dashboard</a></div>';
+                        else {
+                            echo '
+                            <div class="login"><a href="./view/login.php">Login </a></div>
+                            <div class="signup"> <a href="./view/signup.php"> Signup </a></div>';
+                        }
+                    ?>
+                    
                 </div>
             </nav>
         </div>

@@ -1,13 +1,33 @@
 <?php
-
 require './dbConnect.php';
 $db = new db();
 
 
 session_start();
-echo "i am at signup <br>";
-echo isset($_POST['signup']);
+function insertMyData($db,$email,$username, $password, $fname, $lname, $bio, $imgContent = ' '){
+    if ($imgContent == ' ') $imgContent = file_get_contents("../assets/defaultprofile.jpg");
+    // sql query
+    $sql = "INSERT INTO auth (id,email,uname,password,fname,lname,bio,image) values('',?,?,?,?,?,?,?)";
+
+    //sql stmt
+    $stmt = mysqli_prepare($db->conn, $sql);
+    $stmt->bind_param("sssssss", $email, $username, $password, $fname, $lname, $bio, $imgContent);
+    mysqli_stmt_execute($stmt);
+
+    // check and redirect
+    if (mysqli_stmt_errno($stmt)) {
+        print_r(mysqli_stmt_error($stmt));
+    } else {
+        // $_SESSION['status'] = 'Account successfully Created';
+        unset($_SESSION['userId']);
+        $_SESSION['status'] =  array('statusMsg'=>'Account successfully Created','code' => 200,'page' =>'login');
+        header('Location: ../view/login.php');
+    }
+}
+
 if (isset($_POST['email'])) {
+
+    
 
     // get the data
 
@@ -53,26 +73,17 @@ if (isset($_POST['email'])) {
 
                 $image = $_FILES['pp']['tmp_name'];
                 $imgContent = file_get_contents($image);
-
-                // sql query
-                $sql = "INSERT INTO auth (id,email,uname,password,fname,lname,bio,image) values('',?,?,?,?,?,?,?)";
-
-                //sql stmt
-                $stmt = mysqli_prepare($db->conn, $sql);
-                $stmt->bind_param("sssssss", $email, $username, $password, $fname, $lname, $bio, $imgContent);
-                mysqli_stmt_execute($stmt);
-
-                // check and redirect
-                if (mysqli_stmt_errno($stmt)) {
-                    print_r(mysqli_stmt_error($stmt));
-                } else {
-                    // $_SESSION['status'] = 'Account successfully Created';
-                    unset($_SESSION['userId']);
-                    $_SESSION['status'] =  array('statusMsg'=>'Account successfully Created','code' => 200);
-                    header('Location: ../view/login.php');
-                }
+                insertMyData($db,$email,$username, $password, $fname, $lname, $bio, $imgContent);
+                
             } 
+            else{
+                $_SESSION['status'] = array('statusMSg' => 'Please only use given image format: png,jpg,jpeg,gif','code' => 400,'page' => 'signup');
+                header('Location: ../view/signup.php');
+            }
+        } else{
+            insertMyData($db,$email,$username, $password, $fname, $lname, $bio);
         }
+       
     }
 
 

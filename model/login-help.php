@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
         header('Location: ../view/dashboard.php');
     }
     else{
-        $_SESSION['status'] = array('statusMsg' => 'User not Found Try Again','code' => 400);
+        $_SESSION['status'] = array('statusMsg' => 'User not Found Try Again','code' => 400,'page' =>'login');
         header('Location: ../view/login.php');
     }
 

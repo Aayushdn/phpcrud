@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (isset($_SESSION['userId'])) require '../model/logout.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +54,20 @@
                     <textarea name="bio" id="bio" placeholder="Describe yourself in 200 characters"></textarea>
                     <p class="counter"></p>
                 </div>
+                <div class="message">
+                    <?php
+                    if (isset($_SESSION['status']) and isset($_SESSION['status']['page'])) {
+                        if ($_SESSION['status']['code'] == 200 and $_SESSION['status']['page'] == 'signup') {
+                            echo "<p class='success'>" . $_SESSION['status']['statusMsg'] . "</p>";
+                        } elseif ($_SESSION['status']['code'] == 400 and $_SESSION['status']['page'] == 'signup') {
+                            echo "<p class='error'>" . $_SESSION['status']['statusMSg'] . "</p>";
+                        }
+                    }
+
+
+                    ?> </div>
                 <div class="form--group">
-                    <button class="btn" name="send" onclick ="validateForm()" type="button">Sign In</button>
+                    <button class="btn" name="send" onclick ="validateForm()" type="button">Sign Up</button>
                     <a href="./login.php">Already have an acount. Sign in</a>
                 </div>
                 <input type="submit" name="signup" style="visibility:hidden;">
@@ -64,7 +81,7 @@
 </body>
     <script>
         const signupForm = document.querySelector("#signupform");
-        const msgBox = document.querySelector(".msg");
+        const msgBox = document.querySelector(".message");
         const bio = document.querySelector("#bio")
         const counter = document.querySelector(".counter");
         function displayMessage(msg,color){
@@ -105,7 +122,7 @@
 
             
 
-            if (bio.length > 50){
+            if (bio.length > 200){
                 displayMessage("Too long bio edit it to continue","red");
                 return;
             }

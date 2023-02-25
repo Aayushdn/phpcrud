@@ -30,9 +30,9 @@
                 <div class="message">
                     <?php
                     if (isset($_SESSION['status'])) {
-                        if ($_SESSION['status']['code'] == 200) {
+                        if ($_SESSION['status']['code'] == 200 and $_SESSION['status']['page'] == 'login') {
                             echo "<p class='success'>" . $_SESSION['status']['statusMsg'] . "</p>";
-                        } else if ($_SESSION['status']['code'] == 400) {
+                        } else if ($_SESSION['status']['code'] == 400 and $_SESSION['status']['page'] == 'login') {
                             echo "<p class='error'>" . $_SESSION['status']['statusMsg'] . "</p>";
                         }
                     }

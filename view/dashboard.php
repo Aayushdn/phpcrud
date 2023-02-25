@@ -22,7 +22,7 @@
       </div>
       <nav class="navBar">
         <ul class="navLinks midTxt">
-          <li class="navLink">Home</li>
+          <li class="navLink"> <a href = "../index.php">Home </a></li>
           <li class="navLink">Tasks</li>
           <li class="navLink" id="logout">Logout</li>
         </ul>
@@ -131,6 +131,97 @@
           </div>
         </div>
       </div>
+
+      <section class="projectSection">
+        <div class="sectionHead">
+          <h1>My Projects</h1>
+        </div>
+
+        <main class="projects">
+          <div class="projectCard">
+            <div class="projectImg">
+              <img src="../assets/logos/netflixProject.jpg" alt="" />
+            </div>
+            <div class="projectDetail">
+              <div class="descTop">
+                <p>NepFlix: OTT paltform with ReactJS</p>
+              </div>
+              <div class="descMid">
+                <p>
+                  Made with:
+
+                  <span class="flag">ReactJs</span>
+                  <span class="flag">Firebase</span>
+                  <span class="flag">SCSS</span>
+                </p>
+              </div>
+              <div class="descBottom">
+                <p>Live project</p>
+                <div class="likeStat">
+                  <img src="../assets/logos/heart-solid.svg" alt="" />
+                  <span class="likeNumber"> 3.6k </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="projectCard">
+            <div class="projectImg">
+              <img src="../assets/logos/ecommerce.jpg" alt="" />
+            </div>
+            <div class="projectDetail">
+              <div class="descTop">
+                <p>CMS based Ecommerce Platform</p>
+              </div>
+              <div class="descMid">
+                <p>
+                  Made with:
+
+                  <span class="flag">NextJS</span>
+                  <span class="flag">Firebase</span>
+                  <span class="flag">Typescript</span>
+                </p>
+              </div>
+              <div class="descBottom">
+                <p>Live project</p>
+                <div class="likeStat">
+                  <img src="../assets/logos/heart-solid.svg" alt="" />
+                  <span class="likeNumber"> 3.6k </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="projectCard">
+            <div class="projectImg">
+              <img src="../assets/logos/videoChat.jpg" alt="" />
+            </div>
+            <div class="projectDetail">
+              <div class="descTop">
+                <p>Real Time Video Confrencing App</p>
+              </div>
+              <div class="descMid">
+                <p>
+                  Made with:
+
+                  <span class="flag">NodeJS</span>
+                  <span class="flag">Firebase</span>
+                  <span class="flag">NextJs</span>
+                </p>
+              </div>
+              <div class="descBottom">
+                <p>Live project</p>
+                <div class="likeStat">
+                  <img src="../assets/logos/heart-solid.svg" alt="" />
+                  <span class="likeNumber"> 3.6k </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="more">View more on Github</div>
+        </main>
+      </section>
+
     </main>
   </body>
   <script>
@@ -150,8 +241,8 @@
     }
 
     function hideModal(){
-      ogoutModal.classList.remove("hidden");
-      overlay.classList.remove("hidden");
+      logoutModal.classList.add("hidden");
+      overlay.classList.add("hidden");
     }
 
     logout.addEventListener("click" ,function(){

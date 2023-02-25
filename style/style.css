@@ -33,6 +33,10 @@
     color: white;
 }
 
+.login a:hover, .signup a:hover{
+    color: var(--sec-color);
+}
+
 .welcome{
     font-size: 16rem;
     text-align: center;
@@ -107,4 +111,8 @@ main{
     padding: 40px 40px;
     display: flex;
     justify-content: space-around;
+}
+
+.navLink:hover, .auth{
+    color: var(--sec-color);
 }
